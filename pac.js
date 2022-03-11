@@ -669,7 +669,6 @@ function animate() {
       ghost.prevCollisions = collisions
 
     if (JSON.stringify(collisions) !== JSON.stringify(ghost.prevCollisions)) {
-      // console.log('gogo')
 
       if (ghost.velocity.x > 0) ghost.prevCollisions.push('right')
       else if (ghost.velocity.x < 0) ghost.prevCollisions.push('left')
@@ -709,7 +708,6 @@ function animate() {
           ghost.velocity.x = -ghost.speed
           break
       }
-
       ghost.prevCollisions = []
     }
     // console.log(collisions)
@@ -748,19 +746,15 @@ addEventListener('keyup', ({ key }) => {
   switch (key) {
     case 'w':
       keys.w.pressed = false
-
       break
     case 'a':
       keys.a.pressed = false
-
       break
     case 's':
       keys.s.pressed = false
-
       break
     case 'd':
       keys.d.pressed = false
-
       break
   }
 })

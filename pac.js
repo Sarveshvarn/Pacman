@@ -129,7 +129,7 @@ const ghosts = [
   new Ghost({
     position: {
       x: Boundary.width * 6 + Boundary.width / 2,
-      y: Boundary.height + Boundary.height / 2
+      y: Boundary.height * 3 + Boundary.height / 2
     },
     velocity: {
       x: Ghost.speed,
@@ -146,6 +146,28 @@ const ghosts = [
       y: 0
     },
     color: 'pink'
+  }),
+  new Ghost({
+    position: {
+      x: Boundary.width * 6 + Boundary.width / 2,
+      y: Boundary.height * 3 + Boundary.height / 2
+    },
+    velocity: {
+      x: Ghost.speed,
+      y: 0
+    },
+    color: 'lightblue'
+  }),
+  new Ghost({
+    position: {
+      x: Boundary.width * 6 + Boundary.width / 2,
+      y: Boundary.height * 3 + Boundary.height / 2
+    },
+    velocity: {
+      x: Ghost.speed,
+      y: 0
+    },
+    color: 'orange'
   })
 ]
 const player = new Player({
@@ -523,6 +545,7 @@ function animate() {
     ) {
       if (ghost.scared) {
         ghosts.splice(i, 1)
+        score += 50
       } else {
         cancelAnimationFrame(animationId)
         console.log('you lose')
@@ -550,6 +573,7 @@ function animate() {
       powerUp.radius + player.radius
     ) {
       powerUps.splice(i, 1)
+      score += 20
 
       // make ghosts scared
       ghosts.forEach((ghost) => {
